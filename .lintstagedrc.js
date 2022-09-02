@@ -2,12 +2,9 @@ module.exports = {
   // type check typescript files
   '**/*.(ts|tsx)': () => 'yarn type-check --noEmit',
 
-  // lint and format typescript and javascript
-  '**/*.(ts|tsx|js)': (filenames) => [
-    `yarn eslint --fix ${filenames.join(' ')}`,
-    `yarn prettier --write ${filenames.join(' ')}`,
-  ],
+  // lint typescript and javascript
+  '**/*.(ts|tsx|js)': () => 'yarn lint-fix',
 
-  // format markdown and json
-  '**/*.(md|json)': (filenames) => `yarn prettier --write ${filenames.join(' ')}`,
+  // prettify staged files
+  '**/*.(ts|tsx|js|md|json)': () => 'yarn pretty-quick --staged',
 }

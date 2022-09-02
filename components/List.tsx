@@ -6,14 +6,16 @@ type Props = {
   items: User[]
 }
 
-const List = ({ items }: Props) => (
-  <ul>
-    {items.map((item) => (
-      <li key={item.id}>
-        <ListItem data={item} />
-      </li>
-    ))}
-  </ul>
-)
+function List({ items }: Props) {
+  return (
+    <ul>
+      {items.map((item) => (
+        <li>
+          <ListItem data={item} />
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export default List

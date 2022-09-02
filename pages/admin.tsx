@@ -4,14 +4,14 @@ import config from '../cms/config'
 const CMS = dynamic(
   // @ts-expect-error
   async () =>
-    await import('netlify-cms-app').then((cms) => {
+    import('netlify-cms-app').then((cms) => {
       // @ts-expect-error
       cms.init({ config })
     }),
   { ssr: false, loading: () => <p>Loading...</p> },
 )
 
-const AdminPage: React.FC = () => {
+function AdminPage() {
   // @ts-expect-error
   return <CMS />
 }

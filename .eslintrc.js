@@ -1,3 +1,8 @@
+const OFF = 0,
+  WARN = 1,
+  ERROR = 2,
+  NEVER = 'never'
+
 module.exports = {
   root: true,
   parserOptions: {
@@ -7,13 +12,11 @@ module.exports = {
       jsx: true,
     },
   },
-
   env: {
     browser: true,
     node: true,
     es6: true,
   },
-
   settings: {
     react: {
       version: 'detect',
@@ -24,50 +27,61 @@ module.exports = {
       },
     },
   },
-
   plugins: ['@typescript-eslint'],
   extends: [
-    'next/core-web-vitals',
+    'next',
     'plugin:@typescript-eslint/recommended',
     'airbnb',
-    'prettier',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:sonarjs/recommended',
     'plugin:security/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:@next/next/recommended',
+    'prettier',
   ],
 
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-explicit-any': 'error',
-    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unused-vars': ERROR,
+    '@typescript-eslint/no-explicit-any': ERROR,
+    '@typescript-eslint/ban-ts-comment': OFF,
+    'react/react-in-jsx-scope': OFF,
     'react/jsx-filename-extension': [
-      1,
+      WARN,
       {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
       },
     ],
-    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-props-no-spreading': OFF,
+
+    // @see https://stackoverflow.com/questions/69928061/struggling-with-typescript-react-eslint-and-simple-arrow-functions-components
+    'react/function-component-definition': [
+      ERROR,
+      {
+        namedComponents: ['function-declaration', 'arrow-function'],
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+
     'import/extensions': [
-      'error',
+      ERROR,
       'ignorePackages',
       {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
+        js: NEVER,
+        jsx: NEVER,
+        ts: NEVER,
+        tsx: NEVER,
       },
     ],
     'jsx-a11y/anchor-is-valid': [
-      'error',
+      ERROR,
       {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight'],
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
-    'no-nested-ternary': 'off',
-    'import/prefer-default-export': 'off',
+    'no-nested-ternary': OFF,
+    'import/prefer-default-export': OFF,
   },
 }

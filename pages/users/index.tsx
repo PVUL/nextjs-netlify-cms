@@ -10,21 +10,23 @@ type Props = {
   items: User[]
 }
 
-const WithStaticProps = ({ items }: Props) => (
-  <Layout title="Users List | Next.js + TypeScript Example">
-    <h1>Users List</h1>
-    <p>
-      Example fetching data from inside <code>getStaticProps()</code>.
-    </p>
-    <p>You are currently on: /users</p>
-    <List items={items} />
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
-  </Layout>
-)
+function WithStaticProps({ items }: Props) {
+  return (
+    <Layout title="Users List | Next.js + TypeScript Example">
+      <h1>Users List</h1>
+      <p>
+        Example fetching data from inside <code>getStaticProps()</code>.
+      </p>
+      <p>You are currently on: /users</p>
+      <List items={items} />
+      <p>
+        <Link href="/">
+          <a>Go home</a>
+        </Link>
+      </p>
+    </Layout>
+  )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   // Example for including static props in a Next.js function component page.
