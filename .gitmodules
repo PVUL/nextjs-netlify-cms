@@ -2,3 +2,4 @@
 	path = content
 	url = git@github.com:PVUL/nextjs-netlify-cms-content.git
   update = merge
+  branch = main
