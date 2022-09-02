@@ -12,7 +12,7 @@ export default {
     {
       name: 'pages',
       label: 'Pages',
-      folder: 'content/pages',
+      folder: '_content/pages',
       fields: [
         {
           label: 'Hero Title',
@@ -32,4 +32,4 @@ export default {
       ],
     },
   ],
-};
+}
