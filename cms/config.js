@@ -5,6 +5,7 @@ export default {
     repo: 'jakeprins/nextjs-netlify-cms',
     branch: 'main',
   },
+  local_backend: true,
   media_folder: 'public/img',
   public_folder: 'img',
   collections: [
