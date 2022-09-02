@@ -18,7 +18,7 @@ const HomePage = ({ content }: Props) => {
     <>
       <h1>{attributes.hero_title}</h1>
       <p>{attributes.hero_description}</p>
-      <Image src={attributes.hero_image} alt="hero image" />
+      <Image src={`/${attributes.hero_image}`} alt="hero image" width="300" height="300" />
     </>
   )
 }
