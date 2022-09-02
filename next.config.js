@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
@@ -6,4 +7,14 @@ module.exports = {
     });
     return config;
   },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/admin',
+  //       destination: '/admin/index.html',
+  //     },
+  //   ];
+  // },
 };
+
+module.exports = nextConfig;

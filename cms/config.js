@@ -1,7 +1,7 @@
 export default {
   cms_manual_init: true,
   backend: {
-    name: 'github',
+    name: 'git-gateway',
     repo: 'pvul/nextjs-netlify-cms',
     branch: 'main',
   },

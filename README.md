@@ -2,6 +2,22 @@
 
 This is a really simple project that shows the usage of Next.js with TypeScript.
 
+## For local dev
+
+Start the netlify cms proxy server:
+
+```
+npx netlify-cms-proxy-server
+```
+
+Then run the local nextjs server:
+
+```
+yarn dev
+```
+
+See `localhost:3000`
+
 ## Deploy your own
 
 Deploy the example using [Vercel](https://vercel.com):
