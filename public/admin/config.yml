@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: pvul/nextjs-netlify-cms
+  repo: pvul/nextjs-netlify-cms-content
   branch: main # Branch to update (optional; defaults to master)
 local_backend: true
 media_folder: public/img
