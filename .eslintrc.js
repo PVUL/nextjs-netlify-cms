@@ -1,39 +1,73 @@
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-  extends: ['eslint:recommended', 'next', 'prettier'],
   parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
-    sourceType: 'module',
   },
-  rules: {},
-  overrides: [
-    {
-      files: ['**/*.ts?(x)'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 12,
-        sourceType: 'module',
-        project: './tsconfig.json',
-      },
-      extends: ['plugin:react/recommended', 'airbnb-typescript', 'prettier'],
-      plugins: ['react', '@typescript-eslint'],
-      rules: {
-        'react/jsx-uses-react': 'off',
-        'react/react-in-jsx-scope': 'off',
-        'react/prop-types': 'off',
-        'react/require-default-props': 'off',
+
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
+
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.tsx'],
       },
     },
+  },
+
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'next/core-web-vitals',
+    'plugin:@typescript-eslint/recommended',
+    'airbnb',
+    'prettier',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
+    'plugin:sonarjs/recommended',
+    'plugin:security/recommended',
+    'plugin:react-hooks/recommended',
   ],
+
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      },
+    ],
+    'react/jsx-props-no-spreading': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    'no-nested-ternary': 'off',
+    'import/prefer-default-export': 'off',
+  },
 }
