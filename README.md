@@ -11,6 +11,7 @@ yarn dev
 ```
 
 Note: this also starts the netlify cms proxy server which is necessary for the local backend
+
 Go to `http://localhost:3000`
 
 ---
